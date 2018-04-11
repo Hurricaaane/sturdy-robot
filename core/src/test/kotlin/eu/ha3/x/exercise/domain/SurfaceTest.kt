@@ -1,6 +1,5 @@
 package eu.ha3.x.exercise.domain
 
-import eu.ha3.x.exercise.domain.domain.Surface
 import nl.jqno.equalsverifier.EqualsVerifier
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.assertAll

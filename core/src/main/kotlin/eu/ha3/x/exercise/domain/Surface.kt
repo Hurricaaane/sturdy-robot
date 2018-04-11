@@ -1,4 +1,4 @@
-package eu.ha3.x.exercise.domain.domain
+package eu.ha3.x.exercise.domain
 
 /**
  * Rectangular surface on which the Mower will roam through.
