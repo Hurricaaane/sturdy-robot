@@ -24,7 +24,7 @@ pipeline {
                 sh 'ls'
                 sh '''
                     mkdir -p maven_local_repo
-                    cd api-bird; mvn -Dmaven.repo.local=./maven_local_repo clean package
+                    mvn -Dmaven.repo.local=./maven_local_repo clean package
                 '''
             }
         }
