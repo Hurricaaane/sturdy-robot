@@ -21,27 +21,41 @@ class Mower(private val surface: Surface, private var state: State) {
      * The state may not change if the command would not result in a new position.
      */
     fun execute(command: Command) {
-        if (command == Command.FORWARD) {
-            val candidateState = when (state.orientation) {
-                Orientation.NORTH -> CandidateState(state.xPosition, state.yPosition + 1, state.orientation)
-                Orientation.EAST -> CandidateState(state.xPosition + 1, state.yPosition, state.orientation)
-                Orientation.SOUTH -> CandidateState(state.xPosition, state.yPosition - 1, state.orientation)
-                Orientation.WEST -> CandidateState(state.xPosition - 1, state.yPosition, state.orientation)
-            }
+        when (command) {
+            Command.FORWARD -> {
+                val candidateState = when (state.orientation) {
+                    Orientation.NORTH -> CandidateState(state.xPosition, state.yPosition + 1, state.orientation)
+                    Orientation.EAST -> CandidateState(state.xPosition + 1, state.yPosition, state.orientation)
+                    Orientation.SOUTH -> CandidateState(state.xPosition, state.yPosition - 1, state.orientation)
+                    Orientation.WEST -> CandidateState(state.xPosition - 1, state.yPosition, state.orientation)
+                }
 
-            if (candidateState.isInside(surface)) {
-                state = candidateState.asState()
-            }
+                if (candidateState.isInside(surface)) {
+                    state = candidateState.asState()
+                }
 
-        } else if (command == Command.RIGHT) {
-            val newOrientation = when (state.orientation) {
-                Orientation.NORTH -> Orientation.EAST
-                Orientation.EAST -> Orientation.SOUTH
-                Orientation.SOUTH -> Orientation.WEST
-                Orientation.WEST -> Orientation.NORTH
             }
+            Command.RIGHT -> {
+                val newOrientation = when (state.orientation) {
+                    Orientation.NORTH -> Orientation.EAST
+                    Orientation.EAST -> Orientation.SOUTH
+                    Orientation.SOUTH -> Orientation.WEST
+                    Orientation.WEST -> Orientation.NORTH
+                }
 
-            state = State(state.xPosition, state.yPosition, newOrientation)
+                state = State(state.xPosition, state.yPosition, newOrientation)
+
+            }
+            Command.LEFT -> {
+                val newOrientation = when (state.orientation) {
+                    Orientation.NORTH -> Orientation.WEST
+                    Orientation.WEST -> Orientation.SOUTH
+                    Orientation.SOUTH -> Orientation.EAST
+                    Orientation.EAST -> Orientation.NORTH
+                }
+
+                state = State(state.xPosition, state.yPosition, newOrientation)
+            }
         }
     }
 
