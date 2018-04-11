@@ -1,6 +1,7 @@
 package eu.ha3.x.exercise.domain
 
 import eu.ha3.x.exercise.domain.domain.Surface
+import nl.jqno.equalsverifier.EqualsVerifier
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.assertAll
 import org.junit.jupiter.api.Assertions.assertThrows
@@ -67,4 +68,11 @@ public class SurfaceTest {
         assertThat(SUT.xSize).isEqualTo(5)
         assertThat(SUT.ySize).isEqualTo(10)
     }
+
+    @Test
+    public fun `it should verify data class`() {
+        // Verify
+        EqualsVerifier.forClass(Surface::class.java).verify()
+    }
+
 }
