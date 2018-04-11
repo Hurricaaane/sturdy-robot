@@ -19,7 +19,18 @@ class Mower(private val surface: Surface, private var state: State) {
      * The state may not change if the command would not result in a new position.
      */
     fun execute(command: Command) {
-        throw NotImplementedError()
+        if (command == Command.FORWARD) {
+            val candidateState = when (state.orientation) {
+                Orientation.NORTH -> CandidateState(state.xPosition, state.yPosition + 1, state.orientation)
+                Mower.Orientation.EAST -> TODO()
+                Mower.Orientation.SOUTH -> TODO()
+                Mower.Orientation.WEST -> TODO()
+            }
+
+            if (candidateState.isInside(surface)) {
+                state = candidateState.asState()
+            }
+        }
     }
 
     fun getCurrentState() = state
