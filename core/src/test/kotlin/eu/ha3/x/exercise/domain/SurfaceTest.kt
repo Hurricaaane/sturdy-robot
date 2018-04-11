@@ -16,7 +16,7 @@ import org.junit.jupiter.api.function.Executable
 public class SurfaceTest {
     @Test
     public fun `it should not create surfaces with a negative size`() {
-        // Exercise
+        // Exercise and Verify
         assertAll(
             Executable {
                 assertThrows(IllegalArgumentException::class.java) {
@@ -33,7 +33,7 @@ public class SurfaceTest {
 
     @Test
     public fun `it should not create surfaces with size equal to zero`() {
-        // Exercise
+        // Exercise and Verify
         assertAll(
             Executable {
                 assertThrows(IllegalArgumentException::class.java) {
@@ -73,5 +73,4 @@ public class SurfaceTest {
         // Verify
         EqualsVerifier.forClass(Surface::class.java).verify()
     }
-
 }
