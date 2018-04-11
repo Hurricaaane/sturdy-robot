@@ -22,9 +22,9 @@ class Mower(private val surface: Surface, private var state: State) {
         if (command == Command.FORWARD) {
             val candidateState = when (state.orientation) {
                 Orientation.NORTH -> CandidateState(state.xPosition, state.yPosition + 1, state.orientation)
-                Mower.Orientation.EAST -> TODO()
-                Mower.Orientation.SOUTH -> TODO()
-                Mower.Orientation.WEST -> TODO()
+                Orientation.EAST -> TODO()
+                Orientation.SOUTH -> CandidateState(state.xPosition, state.yPosition - 1, state.orientation)
+                Orientation.WEST -> TODO()
             }
 
             if (candidateState.isInside(surface)) {

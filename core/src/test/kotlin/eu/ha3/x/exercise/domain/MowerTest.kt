@@ -30,7 +30,7 @@ public class MowerTest {
     }
 
     @Test
-    public fun `it should not move the mower north`() {
+    public fun `it should not move the mower north because it is in the border`() {
         // Setup
         val SUT = Mower(Surface(3, 10), Mower.State(0, 9, Mower.Orientation.NORTH))
 
@@ -53,5 +53,31 @@ public class MowerTest {
 
         // Verify
         assertThat(finalState).isEqualTo(Mower.State(0, 6, Mower.Orientation.NORTH))
+    }
+
+    @Test
+    public fun `it should not move the mower south because it is in the border`() {
+        // Setup
+        val SUT = Mower(Surface(3, 10), Mower.State(0, 0, Mower.Orientation.SOUTH))
+
+        // Exercise
+        SUT.execute(Mower.Command.FORWARD)
+        val finalState = SUT.getCurrentState()
+
+        // Verify
+        assertThat(finalState).isEqualTo(Mower.State(0, 0, Mower.Orientation.SOUTH))
+    }
+
+    @Test
+    public fun `it should move the mower south`() {
+        // Setup
+        val SUT = Mower(Surface(3, 10), Mower.State(0, 5, Mower.Orientation.SOUTH))
+
+        // Exercise
+        SUT.execute(Mower.Command.FORWARD)
+        val finalState = SUT.getCurrentState()
+
+        // Verify
+        assertThat(finalState).isEqualTo(Mower.State(0, 4, Mower.Orientation.SOUTH))
     }
 }
