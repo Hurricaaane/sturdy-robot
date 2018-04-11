@@ -132,4 +132,56 @@ public class MowerTest {
         // Verify
         assertThat(finalState).isEqualTo(Mower.State(0, 0, Mower.Orientation.WEST))
     }
+
+    @Test
+    public fun `it should rotate the mower to the right from north to east`() {
+        // Setup
+        val SUT = Mower(Surface(3, 10), Mower.State(0, 0, Mower.Orientation.NORTH))
+
+        // Exercise
+        SUT.execute(Mower.Command.RIGHT)
+        val finalState = SUT.getCurrentState()
+
+        // Verify
+        assertThat(finalState).isEqualTo(Mower.State(0, 0, Mower.Orientation.EAST))
+    }
+
+    @Test
+    public fun `it should rotate the mower to the right from east to south`() {
+        // Setup
+        val SUT = Mower(Surface(3, 10), Mower.State(0, 0, Mower.Orientation.EAST))
+
+        // Exercise
+        SUT.execute(Mower.Command.RIGHT)
+        val finalState = SUT.getCurrentState()
+
+        // Verify
+        assertThat(finalState).isEqualTo(Mower.State(0, 0, Mower.Orientation.SOUTH))
+    }
+
+    @Test
+    public fun `it should rotate the mower to the right from south to west`() {
+        // Setup
+        val SUT = Mower(Surface(3, 10), Mower.State(0, 0, Mower.Orientation.SOUTH))
+
+        // Exercise
+        SUT.execute(Mower.Command.RIGHT)
+        val finalState = SUT.getCurrentState()
+
+        // Verify
+        assertThat(finalState).isEqualTo(Mower.State(0, 0, Mower.Orientation.WEST))
+    }
+
+    @Test
+    public fun `it should rotate the mower to the right from west to north`() {
+        // Setup
+        val SUT = Mower(Surface(3, 10), Mower.State(0, 0, Mower.Orientation.WEST))
+
+        // Exercise
+        SUT.execute(Mower.Command.RIGHT)
+        val finalState = SUT.getCurrentState()
+
+        // Verify
+        assertThat(finalState).isEqualTo(Mower.State(0, 0, Mower.Orientation.NORTH))
+    }
 }

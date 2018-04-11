@@ -1,7 +1,9 @@
 package eu.ha3.x.exercise.domain
 
 /**
- * Mower domain.
+ * Represents a Mower placed within a surface.
+ * When given commands, it will mutate through various states.
+ *
  * Created on 2018-04-11
  *
  * @author Ha3
@@ -30,6 +32,16 @@ class Mower(private val surface: Surface, private var state: State) {
             if (candidateState.isInside(surface)) {
                 state = candidateState.asState()
             }
+
+        } else if (command == Command.RIGHT) {
+            val newOrientation = when (state.orientation) {
+                Orientation.NORTH -> Orientation.EAST
+                Orientation.EAST -> Orientation.SOUTH
+                Orientation.SOUTH -> Orientation.WEST
+                Orientation.WEST -> Orientation.NORTH
+            }
+
+            state = State(state.xPosition, state.yPosition, newOrientation)
         }
     }
 
