@@ -69,6 +69,26 @@ public class SurfaceTest {
     }
 
     @Test
+    public fun `it should create a surface of dimensions 6 by 11 using upper-right coordinate`() {
+        // Exercise
+        val SUT = Surface.withUpperRightCoordinate(5, 10)
+
+        // Verify
+        assertThat(SUT.xSize).isEqualTo(6)
+        assertThat(SUT.ySize).isEqualTo(11)
+    }
+
+    @Test
+    public fun `it should create a surface of dimensions 1 by 1 using upper-right coordinate`() {
+        // Exercise
+        val SUT = Surface.withUpperRightCoordinate(0, 0)
+
+        // Verify
+        assertThat(SUT.xSize).isEqualTo(1)
+        assertThat(SUT.ySize).isEqualTo(1)
+    }
+
+    @Test
     public fun `it should verify data class`() {
         // Verify
         EqualsVerifier.forClass(Surface::class.java).verify()

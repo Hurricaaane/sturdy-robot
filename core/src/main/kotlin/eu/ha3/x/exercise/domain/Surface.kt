@@ -16,4 +16,10 @@ data class Surface(val xSize: Int, val ySize: Int) {
             throw IllegalArgumentException("Size must be strictly positive")
         }
     }
+
+    companion object {
+        fun withUpperRightCoordinate(rightmostCoord: Int, uppermostCoord: Int): Surface {
+            return Surface(rightmostCoord + 1, uppermostCoord + 1)
+        }
+    }
 }
