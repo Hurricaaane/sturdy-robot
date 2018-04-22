@@ -32,6 +32,10 @@ class Mower(private val surface: Surface, private val state: State) {
         return Mower(surface, newState)
     }
 
+    fun executeAll(commands: List<Command>): Mower {
+        return commands.fold(this, Mower::execute)
+    }
+
     private fun moveForward(): State {
         val candidateState = when (state.orientation) {
             Orientation.NORTH -> State(state.xPosition, state.yPosition + 1, state.orientation)

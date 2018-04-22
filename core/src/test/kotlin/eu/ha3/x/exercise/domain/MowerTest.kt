@@ -3,6 +3,9 @@ package eu.ha3.x.exercise.domain
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Test
+import java.util.*
+import java.util.stream.Collectors
+import java.util.stream.IntStream
 
 /**
  * (Default template)
@@ -223,6 +226,7 @@ public class MowerTest {
         // Verify
         assertThat(finalState).isEqualTo(Mower.State(0, 0, Mower.Orientation.EAST))
     }
+
     @Test
     public fun `it should rotate the mower to the left from east to north`() {
         // Setup
@@ -234,5 +238,32 @@ public class MowerTest {
 
         // Verify
         assertThat(finalState).isEqualTo(Mower.State(0, 0, Mower.Orientation.NORTH))
+    }
+
+    @Test
+    public fun `it should execute the command in sequence`() {
+        // Setup
+        val initialMower = Mower(Surface(2, 2), Mower.State(0, 0, Mower.Orientation.NORTH))
+
+        // Execute
+        val finalMower = initialMower.executeAll(listOf(Mower.Command.FORWARD, Mower.Command.RIGHT))
+
+        // Verify
+        assertThat(finalMower.getCurrentState()).isEqualTo(Mower.State(0, 1, Mower.Orientation.EAST))
+    }
+
+    @Test
+    public fun `it should many commands in sequence without a stack overflow`() {
+        // Setup
+        val initialMower = Mower(Surface(2, 2), Mower.State(0, 0, Mower.Orientation.NORTH))
+        val rand = Random(1234)
+        val possibleCommands = Mower.Command.values()
+        val lotsOfCommands = IntStream.range(0, 10_000)
+                .map({ rand.nextInt(possibleCommands.size) })
+                .mapToObj({ possibleCommands[it] })
+                .collect(Collectors.toList())
+
+        // Execute
+        initialMower.executeAll(lotsOfCommands)
     }
 }
