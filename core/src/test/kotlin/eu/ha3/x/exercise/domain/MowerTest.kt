@@ -45,14 +45,14 @@ public class MowerTest {
     @Test
     public fun `it should move the mower north`() {
         // Setup
-        val SUT = Mower(Surface(3, 10), Mower.State(0, 5, Mower.Orientation.NORTH))
+        val SUT = Mower(Surface(3, 10), Mower.State(0, 0, Mower.Orientation.NORTH))
 
         // Exercise
         val result = SUT.execute(Mower.Command.FORWARD)
         val finalState = result.getCurrentState()
 
         // Verify
-        assertThat(finalState).isEqualTo(Mower.State(0, 6, Mower.Orientation.NORTH))
+        assertThat(finalState).isEqualTo(Mower.State(0, 1, Mower.Orientation.NORTH))
     }
 
     @Test
@@ -71,14 +71,14 @@ public class MowerTest {
     @Test
     public fun `it should move the mower south`() {
         // Setup
-        val SUT = Mower(Surface(3, 10), Mower.State(0, 5, Mower.Orientation.SOUTH))
+        val SUT = Mower(Surface(3, 10), Mower.State(0, 9, Mower.Orientation.SOUTH))
 
         // Exercise
         val result = SUT.execute(Mower.Command.FORWARD)
         val finalState = result.getCurrentState()
 
         // Verify
-        assertThat(finalState).isEqualTo(Mower.State(0, 4, Mower.Orientation.SOUTH))
+        assertThat(finalState).isEqualTo(Mower.State(0, 8, Mower.Orientation.SOUTH))
     }
 
     @Test
@@ -97,14 +97,14 @@ public class MowerTest {
     @Test
     public fun `it should move the mower east`() {
         // Setup
-        val SUT = Mower(Surface(3, 10), Mower.State(1, 0, Mower.Orientation.EAST))
+        val SUT = Mower(Surface(3, 10), Mower.State(0, 0, Mower.Orientation.EAST))
 
         // Exercise
         val result = SUT.execute(Mower.Command.FORWARD)
         val finalState = result.getCurrentState()
 
         // Verify
-        assertThat(finalState).isEqualTo(Mower.State(2, 0, Mower.Orientation.EAST))
+        assertThat(finalState).isEqualTo(Mower.State(1, 0, Mower.Orientation.EAST))
     }
 
     @Test
@@ -123,14 +123,14 @@ public class MowerTest {
     @Test
     public fun `it should move the mower west`() {
         // Setup
-        val SUT = Mower(Surface(3, 10), Mower.State(1, 0, Mower.Orientation.WEST))
+        val SUT = Mower(Surface(3, 10), Mower.State(2, 0, Mower.Orientation.WEST))
 
         // Exercise
         val result = SUT.execute(Mower.Command.FORWARD)
         val finalState = result.getCurrentState()
 
         // Verify
-        assertThat(finalState).isEqualTo(Mower.State(0, 0, Mower.Orientation.WEST))
+        assertThat(finalState).isEqualTo(Mower.State(1, 0, Mower.Orientation.WEST))
     }
 
     @Test
