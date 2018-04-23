@@ -11,8 +11,12 @@
     <modules>
         <module>core</module>
         <module>runner</module>
-        <module>text-program-deserializer</module>
-        <module>stdin-consumer</module>
+        <module>parser-text</module>
+        <module>consumer</module>
+        <module>consumer-stdin</module>
+        <module>consumer-file</module>
+        <module>executable-unix</module>
+        <module>listener-stdout</module>
         <module>jacoco-reporter</module>
     </modules>
 

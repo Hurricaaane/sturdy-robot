@@ -31,7 +31,7 @@ pipeline {
         }
         stage('Create Distributable') {
             steps {
-                archive 'stdin-consumer/target/exercise-stdin.jar'
+                archive 'executable-unix/target/exercise.jar'
             }
         }
     }

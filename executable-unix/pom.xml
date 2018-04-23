@@ -7,7 +7,7 @@
         <artifactId>x-exercise</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>jacoco-reporter</artifactId>
+    <artifactId>executable-unix</artifactId>
     <packaging>jar</packaging>
 
     <modelVersion>4.0.0</modelVersion>
@@ -15,14 +15,25 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <finalName>exercise</finalName>
+                    <archive>
+                        <manifest>
+                            <mainClass>eu.ha3.x.exercise.executables.unix.UnixExecutable</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <appendAssemblyId>false</appendAssemblyId>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>report-aggregate</id>
-                        <phase>verify</phase>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
                         <goals>
-                            <goal>report-aggregate</goal>
+                            <goal>single</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -38,12 +49,12 @@
         </dependency>
         <dependency>
             <groupId>eu.ha3.x.exercise</groupId>
-            <artifactId>runner</artifactId>
+            <artifactId>parser-text</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>eu.ha3.x.exercise</groupId>
-            <artifactId>consumer</artifactId>
+            <artifactId>runner</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -59,16 +70,6 @@
         <dependency>
             <groupId>eu.ha3.x.exercise</groupId>
             <artifactId>listener-stdout</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>eu.ha3.x.exercise</groupId>
-            <artifactId>parser-text</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>eu.ha3.x.exercise</groupId>
-            <artifactId>executable-unix</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
