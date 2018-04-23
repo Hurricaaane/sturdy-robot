@@ -8,7 +8,7 @@ package eu.ha3.x.exercise.domain
  *
  * @author Ha3
  */
-class Mower(private val surface: Surface, private val state: State) {
+data class Mower(private val surface: Surface, private val state: State) {
     init {
         if (!state.isInside(surface)) {
             throw IllegalArgumentException("Initial state is out of bounds: $state cannot be inside $surface")
