@@ -1,5 +1,6 @@
 package eu.ha3.x.exercise.domain
 
+import nl.jqno.equalsverifier.EqualsVerifier
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.Test
@@ -265,5 +266,11 @@ public class MowerTest {
 
         // Execute
         initialMower.executeAll(lotsOfCommands)
+    }
+
+    @Test
+    public fun `it should verify data class`() {
+        // Verify
+        EqualsVerifier.forClass(Mower::class.java).verify()
     }
 }
