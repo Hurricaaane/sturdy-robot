@@ -42,7 +42,7 @@ pipeline {
                 allowMissing: true,
                 alwaysLinkToLastBuild: false,
                 keepAll: true,
-                reportDir: 'jacoco-reporter/target/site/jacoco-aggregate',
+                reportDir: 'test-jacoco-reporter/target/site/jacoco-aggregate',
                 reportFiles: 'index.html',
                 reportName: 'Coverage Report'
               ]
