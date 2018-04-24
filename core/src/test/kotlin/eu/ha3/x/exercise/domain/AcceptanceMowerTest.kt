@@ -4,7 +4,7 @@ import eu.ha3.x.exercise.domain.Mower.Command.*
 import eu.ha3.x.exercise.domain.Mower.Orientation
 import eu.ha3.x.exercise.domain.Mower.State
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 /**
  * (Default template)
