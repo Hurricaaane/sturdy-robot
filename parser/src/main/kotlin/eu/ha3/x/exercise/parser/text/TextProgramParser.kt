@@ -1,6 +1,7 @@
 package eu.ha3.x.exercise.parser.text
 
 import eu.ha3.x.exercise.domain.Mower
+import eu.ha3.x.exercise.domain.Mower.*
 import eu.ha3.x.exercise.domain.Program
 import eu.ha3.x.exercise.domain.Surface
 
@@ -49,7 +50,7 @@ class TextProgramParser {
         val (x, y, orientation) = split
 
         val initialState = try {
-            Mower.State(Integer.parseInt(x), Integer.parseInt(y), parseOrientation(orientation))
+            State(Integer.parseInt(x), Integer.parseInt(y), parseOrientation(orientation))
 
         } catch (e: NumberFormatException) {
             throw TextProgramParseException(e)
@@ -60,10 +61,10 @@ class TextProgramParser {
     }
 
     private fun parseOrientation(orientationStr: String) = when (orientationStr) {
-        "N" -> Mower.Orientation.NORTH
-        "E" -> Mower.Orientation.EAST
-        "S" -> Mower.Orientation.SOUTH
-        "W" -> Mower.Orientation.WEST
+        "N" -> Orientation.NORTH
+        "E" -> Orientation.EAST
+        "S" -> Orientation.SOUTH
+        "W" -> Orientation.WEST
         else -> throw TextProgramParseException("Unexpected orientation value: $orientationStr")
     }
 
@@ -72,9 +73,9 @@ class TextProgramParser {
     }
 
     private fun parseCommand(commandChar: Char) = when (commandChar) {
-        'G' -> Mower.Command.LEFT
-        'D' -> Mower.Command.RIGHT
-        'A' -> Mower.Command.FORWARD
+        'G' -> Command.LEFT
+        'D' -> Command.RIGHT
+        'A' -> Command.FORWARD
         else -> throw TextProgramParseException("Unexpected command value: $commandChar")
     }
 

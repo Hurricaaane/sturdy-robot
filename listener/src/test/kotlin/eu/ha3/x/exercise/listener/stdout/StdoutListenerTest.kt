@@ -1,6 +1,7 @@
 package eu.ha3.x.exercise.listener.stdout
 
-import eu.ha3.x.exercise.domain.Mower
+import eu.ha3.x.exercise.domain.Mower.Orientation
+import eu.ha3.x.exercise.domain.Mower.State
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
@@ -42,7 +43,7 @@ public class StdoutListenerTest {
     @Test
     public fun `it should print to the standard output with north`() {
         // Execute
-        StdoutListener().invoke(Mower.State(5, 10, Mower.Orientation.NORTH))
+        StdoutListener().invoke(State(5, 10, Orientation.NORTH))
 
         // Verify
         val charsetName = Charset.defaultCharset().name()
@@ -53,7 +54,7 @@ public class StdoutListenerTest {
     @Test
     public fun `it should print to the standard output with east`() {
         // Execute
-        StdoutListener().invoke(Mower.State(5, 10, Mower.Orientation.EAST))
+        StdoutListener().invoke(State(5, 10, Orientation.EAST))
 
         // Verify
         val charsetName = Charset.defaultCharset().name()
@@ -64,7 +65,7 @@ public class StdoutListenerTest {
     @Test
     public fun `it should print to the standard output with south`() {
         // Execute
-        StdoutListener().invoke(Mower.State(5, 10, Mower.Orientation.SOUTH))
+        StdoutListener().invoke(State(5, 10, Orientation.SOUTH))
 
         // Verify
         val charsetName = Charset.defaultCharset().name()
@@ -75,7 +76,7 @@ public class StdoutListenerTest {
     @Test
     public fun `it should print to the standard output with west`() {
         // Execute
-        StdoutListener().invoke(Mower.State(5, 10, Mower.Orientation.WEST))
+        StdoutListener().invoke(State(5, 10, Orientation.WEST))
 
         // Verify
         val charsetName = Charset.defaultCharset().name()

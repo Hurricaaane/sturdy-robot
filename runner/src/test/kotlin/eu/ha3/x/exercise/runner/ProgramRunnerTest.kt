@@ -41,8 +41,8 @@ public class ProgramRunnerTest {
 
         // Verify
         assertThat(recordedStates).isEqualTo(listOf(
-                Mower.State(2, 1, Orientation.EAST),
-                Mower.State(0, 4, Orientation.SOUTH)
+                State(2, 1, Orientation.EAST),
+                State(0, 4, Orientation.SOUTH)
         ))
     }
 
@@ -63,8 +63,8 @@ public class ProgramRunnerTest {
 
         // Verify
         assertThat(recordedStates).isEqualTo(listOf(
-                Mower.State(0, 0, Orientation.NORTH),
-                Mower.State(0, 5, Orientation.WEST)
+                State(0, 0, Orientation.NORTH),
+                State(0, 5, Orientation.WEST)
         ))
     }
 

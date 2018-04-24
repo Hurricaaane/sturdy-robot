@@ -1,6 +1,7 @@
 package eu.ha3.x.exercise.listener.stdout
 
 import eu.ha3.x.exercise.domain.Mower
+import eu.ha3.x.exercise.domain.Mower.Orientation
 import eu.ha3.x.exercise.domain.OnMowingExecutedListener
 
 /**
@@ -14,10 +15,10 @@ class StdoutListener : OnMowingExecutedListener {
         val (xPosition, yPosition, orientation) = state
 
         val orientationToDisplay = when (orientation) {
-            Mower.Orientation.NORTH -> "N"
-            Mower.Orientation.EAST -> "E"
-            Mower.Orientation.SOUTH -> "S"
-            Mower.Orientation.WEST -> "W"
+            Orientation.NORTH -> "N"
+            Orientation.EAST -> "E"
+            Orientation.SOUTH -> "S"
+            Orientation.WEST -> "W"
         }
 
         println("$xPosition $yPosition $orientationToDisplay")
