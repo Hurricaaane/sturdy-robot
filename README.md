@@ -8,3 +8,13 @@
 - **executable-unix** provides an executable jar combining all of the above
   - accepting piped input, or file input as first parameter
   - prints to standard output
+
+## executing
+
+- With Unix pipes
+
+`cat ./input.txt | java -jar exercise.jar`
+
+- With file argument
+
+`java -jar exercise.jar ./input.txt`
