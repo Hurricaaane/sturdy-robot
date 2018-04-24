@@ -1,6 +1,5 @@
-package eu.ha3.x.exercise.consumers.stdin
+package eu.ha3.x.exercise.consumers
 
-import eu.ha3.x.exercise.consumers.Consumer
 import java.io.BufferedReader
 import java.io.InputStreamReader
 

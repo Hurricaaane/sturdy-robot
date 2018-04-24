@@ -1,4 +1,4 @@
-package eu.ha3.x.exercise.consumers.file
+package eu.ha3.x.exercise.consumers
 
 import eu.ha3.x.exercise.consumers.Consumer
 import java.nio.file.Files

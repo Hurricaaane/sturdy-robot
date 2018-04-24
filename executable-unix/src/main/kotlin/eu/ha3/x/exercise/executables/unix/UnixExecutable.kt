@@ -1,8 +1,8 @@
 package eu.ha3.x.exercise.executables.unix
 
 import eu.ha3.x.exercise.consumers.Consumer
-import eu.ha3.x.exercise.consumers.file.FileConsumer
-import eu.ha3.x.exercise.consumers.stdin.StdinConsumer
+import eu.ha3.x.exercise.consumers.FileConsumer
+import eu.ha3.x.exercise.consumers.StdinConsumer
 import eu.ha3.x.exercise.listener.stdout.StdoutListener
 import eu.ha3.x.exercise.parser.text.TextProgramParser
 import eu.ha3.x.exercise.runner.ProgramRunner

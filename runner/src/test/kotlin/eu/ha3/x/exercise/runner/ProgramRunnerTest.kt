@@ -17,6 +17,14 @@ import org.junit.jupiter.api.Test
  */
 public class ProgramRunnerTest {
     @Test
+    public fun name() {
+        println(("ab cd").split(""))
+
+        println(("ab cd" as java.lang.String).split("").asList())
+
+    }
+
+    @Test
     public fun `it should execute the program`() {
         // Setup
         val sequences = listOf(

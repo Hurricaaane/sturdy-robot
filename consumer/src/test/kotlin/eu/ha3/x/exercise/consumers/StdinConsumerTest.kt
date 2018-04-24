@@ -1,4 +1,4 @@
-package eu.ha3.x.exercise.consumers.stdin
+package eu.ha3.x.exercise.consumers
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.AfterEach

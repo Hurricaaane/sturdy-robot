@@ -1,4 +1,4 @@
-package eu.ha3.x.exercise.consumers.file
+package eu.ha3.x.exercise.consumers
 
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.util.Files
