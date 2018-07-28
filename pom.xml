@@ -18,6 +18,13 @@
         <module>test-jacoco-reporter</module>
     </modules>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>sonatype</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <properties>
         <kotlin.version>1.2.30</kotlin.version>
         <!--<kotlin.compiler.incremental>true</kotlin.compiler.incremental>--> <!-- DISABLED: Causes test resources to go missing -->
@@ -55,7 +62,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.1</version>
+                <version>0.8.2-SNAPSHOT</version>
                 <executions>
                     <execution>
                         <id>default-prepare-agent</id>
